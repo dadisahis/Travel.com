@@ -6,6 +6,7 @@ import authRoute from "./routes/auth.js";
 import hotelRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -20,6 +21,7 @@ const connect = async () => {
 
 //middlewares
 //we have to use express.json() to send json request body in an api request
+app.use(cors());
 app.use(cookieparser());
 app.use(express.json());
 
