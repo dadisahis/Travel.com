@@ -5,6 +5,7 @@ import {
   deleteRoom,
   getRoomById,
   getAllRooms,
+  updateRoomAvailability,
 } from "../controllers/room.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -14,6 +15,7 @@ const router = express.Router();
 router.post("/create/:hotelid", verifyAdmin, createRoom);
 //UPDATE
 router.put("/update/:id", verifyAdmin, updateRoom);
+router.put("/availability/:id", updateRoomAvailability);
 //DELETE
 router.delete("/delete/:id/:hotelid", verifyAdmin, deleteRoom);
 //GET
