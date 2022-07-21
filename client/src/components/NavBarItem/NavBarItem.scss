@@ -1,0 +1,19 @@
+.navbaritem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  &.active {
+    border: 1px solid white;
+    background-color: #ff607a3b;
+  }
+  p {
+    margin-left: 5px;
+  }
+}
+.navbaritem:hover {
+  background-color: #ff607a3b;
+}

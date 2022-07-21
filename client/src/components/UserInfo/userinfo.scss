@@ -1,0 +1,65 @@
+.userinfo {
+  margin-left: 10px;
+  position: relative;
+  .userinfo_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border: 2px solid #a760ff;
+    border-radius: 50%;
+    object-fit: fit;
+    color: #a760ff;
+    cursor: pointer;
+    img {
+      top: 3px;
+      height: 30px;
+      width: 30px;
+      border: 1px solid #a760ff;
+      border-radius: 50%;
+      object-fit: fit;
+    }
+  }
+  .userinfo_container {
+    position: absolute;
+    height: 170px;
+    width: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #a760ff;
+    background: rgb(60, 16, 83);
+    top: 40px;
+    color: white;
+    z-index: 101;
+    h3 {
+      text-align: center;
+      font-size: 16px;
+      color: #a760ff;
+    }
+    .userinfo_item {
+      margin: 6px 0px;
+      p {
+        font-size: 14px;
+        font-weight: 650;
+        color: #a760ff;
+      }
+      .username,
+      .email {
+        font-size: 11px;
+        font-weight: 500;
+        color: white;
+      }
+    }
+    .userinfo_signout {
+      display: flex;
+      padding: 5px 5px;
+      margin-top: 40px;
+    }
+    .userinfo_signout:hover {
+      background-color: #9849f8;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+}

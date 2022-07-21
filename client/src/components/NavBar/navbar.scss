@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  .navbar__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    width: 100%;
+    max-width: 1024px;
+    .navbar__left {
+      .logo {
+        color: white;
+        h3 {
+          font-size: 25px;
+          font-weight: 700;
+        }
+      }
+    }
+    .navbar__right {
+      .items {
+        display: flex;
+        align-items: center;
+        .item {
+          padding: 0px 10px;
+          color: white;
+          cursor: pointer;
+          .country {
+            position: relative;
+            top: 3px;
+            height: 25px;
+            width: 25px;
+            border: 0.5px solid gray;
+            border-radius: 50%;
+            object-fit: fill;
+          }
+          .helpIcon {
+            position: relative;
+            top: 3px;
+          }
+          .button {
+            color: #a760ff;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #a760ff;
+            padding: 8px;
+            border-radius: 10px;
+            &.property {
+              color: white;
+              border: 1px solid white;
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
