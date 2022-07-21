@@ -11,7 +11,7 @@ function Carousel() {
   const [page, setPage] = useState(1);
   async function searchPhotos(page) {
     const data = await fetch(
-      `https://api.unsplash.com/search/photos?page=1&query=${"holiday"}&page=${page}&per_page=5&client_id=${
+      `https://api.unsplash.com/search/photos?page=1&query=${"travel architecture"}&page=${page}&per_page=5&client_id=${
         process.env.REACT_APP_UNSPLASH_ACCESS_KEY
       }`
     );

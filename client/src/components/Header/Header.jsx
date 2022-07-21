@@ -2,6 +2,7 @@ import React from "react";
 import NavBarItem from "../NavBarItem/NavBarItem";
 import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
+import ExploreIcon from "@mui/icons-material/Explore";
 import DirectionsCarFilledOutlinedIcon from "@mui/icons-material/DirectionsCarFilledOutlined";
 import AttractionsOutlinedIcon from "@mui/icons-material/AttractionsOutlined";
 import HailOutlinedIcon from "@mui/icons-material/HailOutlined";
@@ -23,8 +24,8 @@ function Header({ type }) {
     },
     {
       id: 2,
-      title: "Flights",
-      icon: <FlightTakeoffOutlinedIcon />,
+      title: "Explore",
+      icon: <ExploreIcon />,
       isActive: false,
     },
     {
@@ -56,9 +57,9 @@ function Header({ type }) {
       )
     );
   }
-  function handleClick() {
+  function handleClick(page) {
     dispatch({ type: "RESET_SEARCH" });
-    navigate("/hotels", {
+    navigate(`/${page}`, {
       state: {
         destination: INITIAL_STATE.city,
         date: INITIAL_STATE.date,
@@ -80,7 +81,7 @@ function Header({ type }) {
               className="header__item"
               onClick={() => {
                 handleActive(item.id);
-                handleClick();
+                handleClick(item.title.toLowerCase());
               }}
             >
               <NavBarItem

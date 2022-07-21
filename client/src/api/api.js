@@ -13,6 +13,13 @@ export const searchPhotos = async (query) => {
   const dataJ = await data.json();
   return dataJ.results;
 };
+export const searchMultiplePhotos = async (query, page, per_page) => {
+  const data = await fetch(
+    `https://api.unsplash.com/search/photos?page=1&query=${query}&page=${page}&per_page=${per_page}&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+  );
+  const dataJ = await data.json();
+  return dataJ.results;
+};
 
 export const getFeaturedProperties = async () => {
   const data = await axios.get(
