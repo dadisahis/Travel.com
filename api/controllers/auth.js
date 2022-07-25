@@ -7,8 +7,7 @@ export const register = async (req, res, next) => {
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(req.body.password, salt);
     const newUser = new User({
-      username: req.body.username,
-      email: req.body.email,
+      ...req.body,
       password: hash,
     });
     await newUser.save();
@@ -19,7 +18,7 @@ export const register = async (req, res, next) => {
 };
 
 export const login = async (req, res, next) => {
-  console.log(req.body);
+  req.body;
   try {
     const user = await User.findOne({ username: req.body.username });
     if (user) {
@@ -35,10 +34,11 @@ export const login = async (req, res, next) => {
           process.env.JWT_SECRET
         );
         const { password, isAdmin, ...otherDetails } = user._doc;
+        token;
         res
           .cookie("access_token", token, { httpOnly: true })
           .status(200)
-          .send(otherDetails);
+          .json({ details: { ...otherDetails }, isAdmin });
       }
     } else {
       return next(createError(404, "Username not found"));

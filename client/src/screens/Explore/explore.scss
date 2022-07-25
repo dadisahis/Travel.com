@@ -1,0 +1,98 @@
+.explore {
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-repeat: no-repeat;
+  height: auto;
+  .explore_top {
+    background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  }
+  .explore_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    .mostSearched {
+      .title {
+        font-family: "Abril Fatface", cursive;
+        color: white;
+        font-size: 45px;
+        font-weight: 200;
+        text-align: center;
+      }
+      .pill_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .pill {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 5px;
+          margin: 5px;
+          height: 30px;
+          width: 100px;
+          border: 2px solid rgb(255, 255, 255);
+          border-radius: 20px;
+          color: white;
+          cursor: pointer;
+          &.active {
+            color: #00ffab;
+            border: 2px solid #00ffab;
+          }
+          p {
+            font-family: "Abril Fatface", cursive;
+          }
+        }
+        .pill:hover {
+          background-color: rgba(255, 255, 255, 0.178);
+        }
+      }
+    }
+
+    .explore_wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1024px;
+      padding: 0px 45px;
+      gap: 10px;
+      .image_div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        height: 100%;
+        border-radius: 3px;
+        width: 300px;
+        .description {
+          width: 80%;
+          margin: 10px 0px;
+          color: white;
+          font-weight: 600;
+        }
+        .tag_container {
+          display: flex;
+          .tag {
+            margin: 0px 2px;
+            color: white;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .view_more {
+      position: relative;
+      width: 20%;
+      height: 40px;
+      background: none;
+      color: #17ebd2;
+      border: 2px solid #17ebd2;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .view_more:hover {
+      background-color: #17ebd231;
+    }
+  }
+}

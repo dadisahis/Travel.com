@@ -13,7 +13,7 @@ dotenv.config();
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("Connected to mongodb");
+    ("Connected to mongodb");
   } catch (error) {
     throw error;
   }
@@ -21,7 +21,7 @@ const connect = async () => {
 
 //middlewares
 //we have to use express.json() to send json request body in an api request
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(cookieparser());
 app.use(express.json());
 
@@ -44,5 +44,5 @@ app.use((err, req, res, next) => {
 
 app.listen(8800, () => {
   connect();
-  console.log("Backend is up!");
+  ("Backend is up!");
 });

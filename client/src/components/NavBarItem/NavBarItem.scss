@@ -1,0 +1,15 @@
+.navbaritem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  p {
+    margin-left: 5px;
+  }
+}
+.navbaritem:hover {
+  background-color: #ff607a3b;
+}

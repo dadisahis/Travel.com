@@ -1,0 +1,23 @@
+.single {
+  display: flex;
+  width: 100%;
+  .singleContainer {
+    flex: 6;
+    .single__top {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+    .single__bottom {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.75);
+      margin: 20px;
+      .listTitle {
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+    }
+  }
+}

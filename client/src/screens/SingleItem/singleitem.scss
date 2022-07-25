@@ -1,0 +1,127 @@
+.singleitem {
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-repeat: no-repeat;
+  height: auto;
+  .singleitem_top {
+    background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  }
+  .singleitem_content {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    .singleitem_wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1024px;
+      padding: 0px 45px;
+      .top_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title_container {
+          .title {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+              "Helvetica Neue", sans-serif;
+            font-weight: 650;
+            color: white;
+            font-size: 45px;
+          }
+          .location {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+          }
+        }
+        button {
+          height: 40px;
+          width: 200px;
+          border-radius: 5px;
+          border: none;
+          background-color: #1363df;
+          color: white;
+        }
+      }
+      .location_container {
+        margin-top: 10px;
+        width: 50%;
+        p {
+          padding: 5px 5px;
+          color: white;
+          border-radius: 5px;
+          margin: 5px 0px;
+        }
+        .landmark {
+          background-color: #1363df;
+        }
+        .scheme {
+          background-color: #3ec70b;
+        }
+      }
+      .image_container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: 250px;
+          width: 335px;
+          margin: 3px;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+      }
+      .bottom_container {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        .hotel_details {
+          width: 75%;
+        }
+        .hotel_card {
+          background-color: #1365df2b;
+
+          border-radius: 5px;
+          padding: 10px;
+          width: 25%;
+          height: 200px;
+          margin: 5px 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            padding: 5px 0px;
+            color: white;
+          }
+          button {
+            margin: 5px 0px;
+            padding: 5px;
+            height: 40px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            background-color: #1363df;
+            color: white;
+            cursor: pointer;
+          }
+          .hotel_card_container {
+            .hotel_card_title {
+              font-weight: 700;
+              font-size: 18px;
+            }
+            .hotel_card_description {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

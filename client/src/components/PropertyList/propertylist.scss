@@ -1,0 +1,85 @@
+.propertyList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 70px;
+  .title_container {
+    width: 75%;
+    .propertyList_title {
+      color: white;
+      font-weight: 700;
+      // font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      //   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      //   sans-serif;
+    }
+  }
+  .propertyList_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1024px;
+    margin: 10px 0px 15px 0px;
+
+    .propertyList_item {
+      padding: 10px;
+      background-color: white;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 7px 6px 5px 3px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 7px 6px 5px 3px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 7px 6px 5px 3px rgba(0, 0, 0, 0.2);
+      transition: width 1s, height 1s, transform 1s;
+
+      .propertyList_img {
+        border-radius: 5px;
+      }
+      .propertyList_ratingdata {
+        display: flex;
+        align-items: center;
+        p {
+          padding: 5px;
+          color: gray;
+        }
+        .rating {
+          background-color: #3ec70b;
+          color: white;
+          font-weight: 800;
+          border-radius: 5px;
+        }
+        .feedback {
+          font-weight: 800;
+          color: black;
+          font-size: 11.5px;
+        }
+        .review_count {
+          color: gray;
+        }
+      }
+      .propertyList_titles {
+        color: black;
+        h1 {
+          font-weight: 600;
+          font-size: 25px;
+        }
+        h2 {
+          font-weight: 600;
+          font-size: 15px;
+          color: gray;
+          text-transform: capitalize;
+        }
+      }
+      .propertyList_price {
+        h2 {
+          font-size: 18px;
+        }
+      }
+    }
+    .propertyList_item:hover {
+      transform: scale(1.08);
+    }
+  }
+}
