@@ -10,6 +10,3 @@ Hotel List
 Single Hotel
 Login
 Explore Page
-
-
-Home 
