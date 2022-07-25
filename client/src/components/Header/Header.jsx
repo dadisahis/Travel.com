@@ -1,11 +1,9 @@
 import React from "react";
 import NavBarItem from "../NavBarItem/NavBarItem";
 import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
-import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
 import ExploreIcon from "@mui/icons-material/Explore";
-import DirectionsCarFilledOutlinedIcon from "@mui/icons-material/DirectionsCarFilledOutlined";
-import AttractionsOutlinedIcon from "@mui/icons-material/AttractionsOutlined";
-import HailOutlinedIcon from "@mui/icons-material/HailOutlined";
+import DehazeIcon from "@mui/icons-material/Dehaze";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import "./header.scss";
 import SearchBox from "../SearchBox/SearchBox";
@@ -16,6 +14,7 @@ function Header({ type }) {
   const navigate = useNavigate();
   const location = window.location.pathname.split("/")[1];
   const { dispatch } = useContext(SearchContext);
+  const [open, setOpen] = useState(false);
   const navbar__options = [
     {
       id: 1,
@@ -27,24 +26,6 @@ function Header({ type }) {
       id: 2,
       title: "Explore",
       icon: <ExploreIcon />,
-      isActive: false,
-    },
-    {
-      id: 3,
-      title: "Car Rentals",
-      icon: <DirectionsCarFilledOutlinedIcon />,
-      isActive: false,
-    },
-    {
-      id: 4,
-      title: "Attractions",
-      icon: <AttractionsOutlinedIcon />,
-      isActive: false,
-    },
-    {
-      id: 5,
-      title: "Taxis",
-      icon: <HailOutlinedIcon />,
       isActive: false,
     },
   ];
@@ -75,27 +56,32 @@ function Header({ type }) {
           type === "home" ? "header__container home" : "header__container"
         }
       >
-        <div className="header__items">
-          {optionData.map((item) => (
-            <div
-              key={item.id}
-              className={
-                location === item.title.toLowerCase()
-                  ? "header__item active"
-                  : "header__item"
-              }
-              onClick={() => {
-                handleActive(item.id);
-                handleClick(item.title.toLowerCase());
-              }}
-            >
-              <NavBarItem
-                title={item.title}
-                Icon={item.icon}
-                isActive={item.isActive}
-              />
-            </div>
-          ))}
+        <div className={open ? "header__items open" : "header__items"}>
+          <div className="header__item" onClick={() => setOpen(!open)}>
+            {!open ? (
+              <DehazeIcon className="hamburger" />
+            ) : (
+              <CloseIcon className="hamburger" />
+            )}
+          </div>
+          {open
+            ? optionData.map((item) => (
+                <div
+                  key={item.id}
+                  className={
+                    location === item.title.toLowerCase()
+                      ? "header__item active"
+                      : "header__item"
+                  }
+                  onClick={() => {
+                    handleActive(item.id);
+                    handleClick(item.title.toLowerCase());
+                  }}
+                >
+                  <NavBarItem title={item.title} Icon={item.icon} />
+                </div>
+              ))
+            : null}
         </div>
         {type === "home" ? (
           <>

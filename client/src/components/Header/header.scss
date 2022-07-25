@@ -6,12 +6,24 @@
     max-width: 1024px;
     margin: 20px 0px 15px 0px;
     &.home {
-      margin: 20px 0px 100px 0px;
+      margin: 10px 0px 100px 0px;
     }
     .header__items {
       display: flex;
+      align-items: center;
       gap: 20px;
+      transition: width ease 0.3s;
+      width: 100px;
+      overflow: hidden;
+      height: 55px;
+      &.open {
+        width: 300px;
+      }
+      cursor: pointer;
       .header__item {
+        .hamburger {
+          color: white;
+        }
         &.active {
           border: 1px solid white;
           background-color: #ff607a3b;
@@ -22,7 +34,6 @@
     .header__info {
       position: relative;
       color: white;
-      padding-top: 20px;
       top: 50px;
       h1 {
         font-size: 40px;

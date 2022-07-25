@@ -89,6 +89,7 @@ function Reserve({ setOpen, hotelId }) {
     });
     setReserveRoomList(reserved_room);
   }, [reserveRoom]);
+  console.log(hotelRooms);
 
   return (
     <div className="reserve">
@@ -121,38 +122,40 @@ function Reserve({ setOpen, hotelId }) {
         ) : (
           <>
             <span> Select your rooms: </span>
-            {hotelRooms.map((item, index) => (
-              <div className="reserveItem" key={index}>
-                <div className="reserveItemInfo">
-                  <div className="title">{item.title}</div>
-                  <div className="description">{item.description}</div>
-                  <div className="maxPeople">
-                    <b>Max People</b>: {item.maxPeople} people
-                  </div>
-                  <div className="price">
-                    <b>Price</b>: ${item.price}
-                  </div>
-                </div>
-                <div className="roomContainer">
-                  {item.roomNumber.map((roomNumber, index) => (
-                    <div
-                      className={
-                        !isAvailable(roomNumber) ? "room disable" : "room"
-                      }
-                      key={index}
-                    >
-                      <label>{roomNumber.number}</label>
-                      <input
-                        type="checkbox"
-                        value={roomNumber._id}
-                        onChange={handleSelect}
-                        disabled={!isAvailable(roomNumber)}
-                      />
+            {hotelRooms.map((item, index) =>
+              item ? (
+                <div className="reserveItem" key={index}>
+                  <div className="reserveItemInfo">
+                    <div className="title">{item.title}</div>
+                    <div className="description">{item.description}</div>
+                    <div className="maxPeople">
+                      <b>Max People</b>: {item.maxPeople} people
                     </div>
-                  ))}
+                    <div className="price">
+                      <b>Price</b>: ${item.price}
+                    </div>
+                  </div>
+                  <div className="roomContainer">
+                    {item.roomNumber.map((roomNumber, index) => (
+                      <div
+                        className={
+                          !isAvailable(roomNumber) ? "room disable" : "room"
+                        }
+                        key={index}
+                      >
+                        <label>{roomNumber.number}</label>
+                        <input
+                          type="checkbox"
+                          value={roomNumber._id}
+                          onChange={handleSelect}
+                          disabled={!isAvailable(roomNumber)}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ) : null
+            )}
             <button className="reserveButton" onClick={handleClick}>
               {" "}
               Reserve Now!
