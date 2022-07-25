@@ -6,6 +6,7 @@ The app has been integrated Unsplash photo api to fetch amzing photos which is u
 
 ## P0 Pages
 - Home Page
+     ![alt text] (https://github.com/dadisahis/Travel.com/blob/aad7fc85c295be10cd52cce2b215808fff285afb/images/Home1.png?raw=true)
 
      
      
