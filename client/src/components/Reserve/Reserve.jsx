@@ -75,7 +75,6 @@ function Reserve({ setOpen, hotelId }) {
         ? data
         : null
     );
-    console.log(roomDetails);
     return roomDetails;
   }
   useEffect(() => {
@@ -90,7 +89,6 @@ function Reserve({ setOpen, hotelId }) {
     });
     setReserveRoomList(reserved_room);
   }, [reserveRoom]);
-  console.log(reserveRoomList);
 
   return (
     <div className="reserve">

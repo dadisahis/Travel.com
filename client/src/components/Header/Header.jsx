@@ -68,7 +68,6 @@ function Header({ type }) {
       },
     });
   }
-  console.log(optionData);
   return (
     <div className="header">
       <div

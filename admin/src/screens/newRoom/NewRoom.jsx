@@ -34,7 +34,7 @@ function NewRoom({ inputs, title }) {
   useEffect(() => {
     getAllHotels();
   }, []);
-  console.log(hotelID);
+  hotelID;
   return (
     <div className="new">
       <Sidebar />

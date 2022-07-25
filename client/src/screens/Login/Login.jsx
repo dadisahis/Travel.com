@@ -29,7 +29,6 @@ function Login() {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
         dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
       });
   };

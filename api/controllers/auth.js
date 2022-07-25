@@ -18,7 +18,7 @@ export const register = async (req, res, next) => {
 };
 
 export const login = async (req, res, next) => {
-  console.log(req.body);
+  req.body;
   try {
     const user = await User.findOne({ username: req.body.username });
     if (user) {
@@ -34,7 +34,7 @@ export const login = async (req, res, next) => {
           process.env.JWT_SECRET
         );
         const { password, isAdmin, ...otherDetails } = user._doc;
-        console.log(token);
+        token;
         res
           .cookie("access_token", token, { httpOnly: true })
           .status(200)

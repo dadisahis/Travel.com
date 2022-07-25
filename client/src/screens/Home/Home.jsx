@@ -31,7 +31,6 @@ function Home() {
   function getPropertyData() {
     const property_count = getPropertyByType();
     property_count.then((data) => {
-      console.log(data);
       const property_obj = [];
       data.forEach((item) => {
         const obj = {

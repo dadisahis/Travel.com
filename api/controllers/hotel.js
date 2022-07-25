@@ -37,9 +37,9 @@ export const deleteHotel = async (req, res, next) => {
 
 export const getHotelById = async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    req.params.id;
     const hotel_obj = await Hotel.findById(req.params.id);
-    console.log(hotel_obj);
+    hotel_obj;
     res.status(200).json(hotel_obj);
   } catch (err) {
     next(err);
@@ -61,7 +61,7 @@ export const getAllHotels = async (req, res, next) => {
 
 export const countByCity = async (req, res, next) => {
   const cities = req.body.cities;
-  console.log(req.body);
+  req.body;
   try {
     const hotel_list = await Promise.all(
       cities.map((city) => {

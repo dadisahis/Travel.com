@@ -60,8 +60,6 @@ function Explore() {
     const search_query = query === "" ? "travel architecture" : query;
     getExplorePhotos(search_query, page, 6);
   }, [page, query]);
-  console.log(photos);
-  console.log(query);
 
   return (
     <div className="explore">

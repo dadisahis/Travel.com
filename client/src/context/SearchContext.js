@@ -40,7 +40,6 @@ const SearchReducer = (state, action) => {
 
 export const SearchContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
-  console.log(state);
   return (
     <SearchContext.Provider
       value={{
