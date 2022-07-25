@@ -6,6 +6,7 @@ The app has been integrated Unsplash photo api to fetch amzing photos which is u
 
 ## P0 Pages
 - Home Page
+# ./images/login.png
 - Hotel List 
 - Single Hotel
 - Login
