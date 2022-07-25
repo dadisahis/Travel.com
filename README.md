@@ -6,7 +6,7 @@ The app has been integrated Unsplash photo api to fetch amzing photos which is u
 
 ## P0 Pages
 - Home Page
-![Alt text] (./images/login.png)
+- ![alt text] (https://github.com/dadisahis/Travel.com/blob/041a365c045a84f36023cd4f14a32d92ee329a94/images/login.png)
 - Hotel List 
 - Single Hotel
 - Login
