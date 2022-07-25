@@ -20,3 +20,5 @@ The app has been integrated Unsplash photo api to fetch amzing photos which is u
      ![alt text](https://github.com/dadisahis/Travel.com/blob/041a365c045a84f36023cd4f14a32d92ee329a94/images/login.png?raw=true)
 
 - Explore Page
+     ![alt text](https://github.com/dadisahis/Travel.com/blob/ea2ceba0c6f8f103737ed4ff1ad1553a907a3e86/images/Explore%201.png?raw=true)
+     ![alt text](https://github.com/dadisahis/Travel.com/blob/ea2ceba0c6f8f103737ed4ff1ad1553a907a3e86/images/Explore%202.png?raw=true)
