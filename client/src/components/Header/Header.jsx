@@ -14,6 +14,7 @@ import { useContext } from "react";
 import { SearchContext, INITIAL_STATE } from "../../context/SearchContext";
 function Header({ type }) {
   const navigate = useNavigate();
+  const location = window.location.pathname.split("/")[1];
   const { dispatch } = useContext(SearchContext);
   const navbar__options = [
     {
@@ -52,7 +53,7 @@ function Header({ type }) {
     setOptionData(
       optionData.map((item) =>
         item.id === id
-          ? { ...item, isActive: true }
+          ? { ...item, isActive: !item.isActive }
           : { ...item, isActive: false }
       )
     );
@@ -67,6 +68,7 @@ function Header({ type }) {
       },
     });
   }
+  console.log(optionData);
   return (
     <div className="header">
       <div
@@ -78,7 +80,11 @@ function Header({ type }) {
           {optionData.map((item) => (
             <div
               key={item.id}
-              className="header__item"
+              className={
+                location === item.title.toLowerCase()
+                  ? "header__item active"
+                  : "header__item"
+              }
               onClick={() => {
                 handleActive(item.id);
                 handleClick(item.title.toLowerCase());

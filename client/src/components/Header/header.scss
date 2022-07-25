@@ -11,6 +11,13 @@
     .header__items {
       display: flex;
       gap: 20px;
+      .header__item {
+        &.active {
+          border: 1px solid white;
+          background-color: #ff607a3b;
+          border-radius: 20px;
+        }
+      }
     }
     .header__info {
       position: relative;

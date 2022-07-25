@@ -10,7 +10,6 @@ function Explore() {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [select, setSelect] = useState(false);
   const colors = [
     "#D61C4E",
     "#F77E21",
@@ -19,7 +18,14 @@ function Explore() {
     "#6CC4A1",
     "#A0D995",
   ];
-  const cities = ["London", "Mumbai", "New York", "Sydney", "Greece", "Bali"];
+  const [cities, setCities] = useState([
+    { name: "London", select: false },
+    { name: "Mumbai", select: false },
+    { name: "New York", select: false },
+    { name: "Sydney", select: false },
+    { name: "Greece", select: false },
+    { name: "Bali", select: false },
+  ]);
 
   function generateRandomNumber() {
     const max = 5;
@@ -34,20 +40,24 @@ function Explore() {
     });
   }
   function searchByPlace(place, select) {
-    console.group(select);
     if (!select) {
       setQuery(place);
     } else {
       setQuery("");
     }
-    setSelect(!select);
+    setCities(
+      cities.map((city) =>
+        city.name === place
+          ? { ...city, select: !select }
+          : { ...city, select: false }
+      )
+    );
 
     setPage(1);
     setPhotos([]);
   }
   useEffect(() => {
     const search_query = query === "" ? "travel architecture" : query;
-    console.log(search_query);
     getExplorePhotos(search_query, page, 6);
   }, [page, query]);
   console.log(photos);
@@ -63,14 +73,17 @@ function Explore() {
         <div className="mostSearched">
           <h1 className="title">Most visited places</h1>
           <div className="pill_container">
-            {cities.map((city) => (
+            {cities.map((city, index) => (
               <div
-                className={city === query && select ? "pill active" : "pill"}
+                className={
+                  city.name === query && city.select ? "pill active" : "pill"
+                }
                 onClick={() => {
-                  searchByPlace(city, select);
+                  searchByPlace(city.name, city.select);
                 }}
+                key={index}
               >
-                <p>{city}</p>
+                <p>{city.name}</p>
               </div>
             ))}
           </div>

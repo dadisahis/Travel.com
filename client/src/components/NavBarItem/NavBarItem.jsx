@@ -1,9 +1,9 @@
 import React from "react";
 import "./NavBarItem.scss";
 
-function NavBarItem({ title, Icon, isActive }) {
+function NavBarItem({ title, Icon }) {
   return (
-    <div className={isActive ? "navbaritem active" : "navbaritem"}>
+    <div className="navbaritem">
       <div>{Icon}</div>
       <p>{title}</p>
     </div>
