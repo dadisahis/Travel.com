@@ -1,0 +1,55 @@
+.login {
+  height: 100vh;
+  overflow: auto;
+  background: url("https://images.unsplash.com/photo-1657460867145-a0628be76349");
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login_container {
+    height: 550px;
+    width: 400px;
+    background: url("https://images.unsplash.com/photo-1512692723619-8b3e68365c9c");
+    background-size: 100% 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 5px;
+    .login_wrapper {
+      height: 350px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .input_container {
+        margin-bottom: 5px;
+        p {
+          color: white;
+          text-align: left;
+        }
+        input {
+          height: 25px;
+          padding: 5px;
+          margin: 5px 0px;
+          outline: none;
+          border: none;
+          border-radius: 3px;
+        }
+      }
+      h1 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      button {
+        color: white;
+        border: 1px solid white;
+        width: 170px;
+      }
+    }
+  }
+}

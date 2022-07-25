@@ -26,15 +26,22 @@
       }
       .right {
         flex: 2;
-        padding: 0px 20px;
         form {
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
-          justify-content: space-between;
+          justify-content: space-around;
+          .selectRooms {
+            width: 100%;
+            select {
+              width: 100%;
+              padding: 10px;
+            }
+          }
 
           .formInput {
             width: 40%;
+
             label {
               display: flex;
               align-items: center;

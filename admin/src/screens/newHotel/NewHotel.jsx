@@ -1,34 +1,50 @@
 import React from "react";
 import NavBar from "../../components/navbar/NavBar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./NewPage.scss";
+import "./newhotel.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect } from "react";
-import { createUser } from "../../api/api";
+import { createHotel, getAllRooms } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 
-function NewPage({ inputs, title }) {
+function NewHotel({ inputs, title }) {
   const navigate = useNavigate();
-  const [file, setFile] = useState("");
+  const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [perc, setPerc] = useState(null);
+  const [rooms, setRooms] = useState([]);
+  const [selectRoom, setSelectRoom] = useState([]);
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
   const handleClick = (e) => {
     e.preventDefault();
-    const res = createUser(info);
+    const res = createHotel(info);
     res.then((data) => {
-      navigate("/users");
+      navigate("/hotels");
     });
   };
+  function getRooms() {
+    const res = getAllRooms();
+    res.then((data) => {
+      setRooms(data);
+    });
+  }
+
+  const handleSelect = (e) => {
+    const value = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setSelectRoom(value);
+  };
+  console.log(selectRoom);
 
   useEffect(() => {
-    const uploadFile = () => {
-      console.log(file);
+    const uploadFile = (file) => {
       const storageRef = ref(storage, file.name);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -55,13 +71,22 @@ function NewPage({ inputs, title }) {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setInfo((prev) => ({ ...prev, image: downloadURL }));
+            setInfo((prev) => ({
+              ...prev,
+              image: prev.image
+                ? [...prev.image, { url: downloadURL }]
+                : [{ url: downloadURL }],
+            }));
           });
         }
       );
     };
-    file && uploadFile();
-  }, [file]);
+    files && Object.values(files).map((file) => uploadFile(file));
+  }, [files]);
+
+  useEffect(() => {
+    getRooms();
+  }, []);
   return (
     <div className="new">
       <Sidebar />
@@ -74,8 +99,8 @@ function NewPage({ inputs, title }) {
           <div className="left">
             <img
               src={
-                file
-                  ? URL.createObjectURL(file)
+                files
+                  ? URL.createObjectURL(files[0])
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt=""
@@ -89,8 +114,9 @@ function NewPage({ inputs, title }) {
                 </label>
                 <input
                   type="file"
+                  multiple
                   id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
+                  onChange={(e) => setFiles(e.target.files)}
                   style={{ display: "none" }}
                 />
               </div>
@@ -105,6 +131,25 @@ function NewPage({ inputs, title }) {
                   />
                 </div>
               ))}
+              <div className="formInput">
+                <label>Featured</label>
+                <select id="featured" onChange={handleChange}>
+                  <option value={false}>No</option>
+                  <option value={true}>Yes</option>
+                </select>
+              </div>
+              <div className="selectRooms">
+                <label>Rooms</label>
+                <select id="rooms" multiple onChange={handleSelect}>
+                  {rooms.length > 0
+                    ? rooms.map((room) => (
+                        <option key={room.id} value={room._id}>
+                          {room.title}
+                        </option>
+                      ))
+                    : null}
+                </select>
+              </div>
 
               <button onClick={handleClick}>Send</button>
             </form>
@@ -115,4 +160,4 @@ function NewPage({ inputs, title }) {
   );
 }
 
-export default NewPage;
+export default NewHotel;

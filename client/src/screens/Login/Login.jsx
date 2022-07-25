@@ -25,7 +25,7 @@ function Login() {
     const res = loginUser(credentials);
     res
       .then((data) => {
-        dispatch({ type: "LOGIN_SUCCESS", payload: data });
+        dispatch({ type: "LOGIN_SUCCESS", payload: data.details });
         navigate("/");
       })
       .catch((err) => {

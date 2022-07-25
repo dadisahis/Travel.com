@@ -21,7 +21,7 @@ const connect = async () => {
 
 //middlewares
 //we have to use express.json() to send json request body in an api request
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(cookieparser());
 app.use(express.json());
 
