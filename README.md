@@ -14,7 +14,9 @@ The app has been integrated with Unsplash photo api to fetch amzing photos which
      
      
 - Hotel List 
-- Single Hotel
+- Hotel Info
+     ![alt text](https://github.com/dadisahis/Travel.com/blob/208e2e49e55b74678f22d92b695ba2c4c7462fb5/images/Hotel%20Info.png?raw=true)
+     ![alt text](https://github.com/dadisahis/Travel.com/blob/208e2e49e55b74678f22d92b695ba2c4c7462fb5/images/Hotel%20Info-2.png?raw=true)
 - Login
      
      ![alt text](https://github.com/dadisahis/Travel.com/blob/041a365c045a84f36023cd4f14a32d92ee329a94/images/login.png?raw=true)
