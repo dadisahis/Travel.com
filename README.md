@@ -2,7 +2,9 @@
 
 This is a MERN stack web-app inspired from booking.com has features like search for hotels in various destinations, login, authentication, Book a room in hotel and much more
 
-The app has been integrated with Unsplash photo api to fetch amzing photos which is used to create a beautiful explore page 
+- The app has been integrated with Unsplash photo api to fetch amzing photos which is used to create a beautiful explore page . 
+- Also has a admin portal which is used to create various data required by the app. 
+- Integrated Firebase storage to store image assets and get image url for hotel info .
 
 ## P0 Pages
 - Home Page
